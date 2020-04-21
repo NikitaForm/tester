@@ -13479,7 +13479,7 @@ var ConfigService = /** @class */ (function () {
         var _this = this;
         this.config['AuthorizationToken'] = this.cookieService.get('token');
         return new Promise(function (resolve, reject) {
-            return _this.http.get('http://op.jetsm.com/config')
+            return _this.http.get('/config')
                 .map(function (configResponse) {
                 var response = configResponse;
                 _this.config['AircraftServiceEndpoint'] = response.aircraftServiceEndpoint;
@@ -22835,4 +22835,4 @@ module.exports = __webpack_require__(/*! /Users/msmoliakov/IdeaProjects/python-d
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
-//# sourceMappingURL=main.829b56c756499e968caf.js.map
+//# sourceMappingURL=main.d3dcf651b7fe1c71b630.js.map
