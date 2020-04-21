@@ -13778,7 +13778,22 @@ var OperatorService = /** @class */ (function () {
     OperatorService.prototype.getUserAgreement = function (request) {
         var _this = this;
         var requestUrl = this.operatorServiceEndpoint + "/v1.0/operator/access/evaluate";
-        return this.http.get(requestUrl)
+        // return this.http.get(requestUrl)
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])({
+            json: function () {
+                return {
+                    'message': 'OK',
+                    'code': 200,
+                    'data': {
+                        'isAccessGranted': true,
+                        user_access_denied_reason_id: null,
+                        user_access_denied_reason_message: null,
+                        remainingDocumentUrlToAccept: null,
+                        remainingDocumentUrlToDownload: null
+                    }
+                };
+            }
+        })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (svcResp) {
             var svcJsonResp = svcResp.json();
             var response = new _contracts_operator__WEBPACK_IMPORTED_MODULE_1__["GetUserAgreementResponse"]();
@@ -22892,4 +22907,4 @@ module.exports = __webpack_require__(/*! /Users/msmoliakov/IdeaProjects/python-d
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
-//# sourceMappingURL=main.233a87ccdce4ae07ccb9.js.map
+//# sourceMappingURL=main.e5c6e761a67aa28a7d4e.js.map
