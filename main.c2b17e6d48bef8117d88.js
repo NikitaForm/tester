@@ -13493,7 +13493,7 @@ var ConfigService = /** @class */ (function () {
                 _this.config['AircraftServiceEndpoint'] = response.aircraftServiceEndpoint;
                 _this.config['OperatorServiceEndpoint'] = response.operatorServiceEndpoint;
                 _this.config['SourcingServiceEndpoint'] = response.sourcingServiceEndpoint;
-                _this.config['GraphqlServiceEndpoint'] = 'http://js-operator-api-71597c3915-lb-100811675.us-east-1.elb.amazonaws.com/graphql';
+                _this.config['GraphqlServiceEndpoint'] = 'http://JS-Operator-API-3054eb4e60-LB-1192414755.us-east-1.elb.amazonaws.com/graphql';
                 resolve(true);
             })
                 .catch(function (error) {
