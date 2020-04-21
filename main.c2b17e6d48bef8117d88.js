@@ -13493,6 +13493,7 @@ var ConfigService = /** @class */ (function () {
                 _this.config['AircraftServiceEndpoint'] = response.aircraftServiceEndpoint;
                 _this.config['OperatorServiceEndpoint'] = response.operatorServiceEndpoint;
                 _this.config['SourcingServiceEndpoint'] = response.sourcingServiceEndpoint;
+                _this.config['GraphqlServiceEndpoint'] = 'http://js-operator-api-71597c3915-lb-100811675.us-east-1.elb.amazonaws.com/graphql';
                 resolve(true);
             })
                 .catch(function (error) {
@@ -22907,4 +22908,4 @@ module.exports = __webpack_require__(/*! /Users/msmoliakov/IdeaProjects/python-d
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
-//# sourceMappingURL=main.e5c6e761a67aa28a7d4e.js.map
+//# sourceMappingURL=main.c2b17e6d48bef8117d88.js.map
