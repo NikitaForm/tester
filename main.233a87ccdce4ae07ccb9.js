@@ -13750,6 +13750,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _config_contracts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config/contracts */ "./src/app/core/services/config/contracts/index.ts");
 /* harmony import */ var _shared_services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../shared/services */ "./src/app/shared/services/index.ts");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+
 
 
 
@@ -13797,7 +13799,22 @@ var OperatorService = /** @class */ (function () {
     OperatorService.prototype.evaluateAccess = function () {
         var _this = this;
         var requestUrl = this.operatorServiceEndpoint + "/v1.0/operator/access/evaluate";
-        return this.http.get(requestUrl)
+        // return this.http.get(requestUrl)
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_5__["of"])({
+            json: function () {
+                return {
+                    'message': 'OK',
+                    'code': 200,
+                    'data': {
+                        'isAccessGranted': true,
+                        user_access_denied_reason_id: null,
+                        user_access_denied_reason_message: null,
+                        remainingDocumentUrlToAccept: null,
+                        remainingDocumentUrlToDownload: null
+                    }
+                };
+            }
+        })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (res) {
             var svcJsonResp = res.json();
             var response = new _contracts_operator__WEBPACK_IMPORTED_MODULE_1__["GetUserAgreementResponse"]();
@@ -22875,4 +22892,4 @@ module.exports = __webpack_require__(/*! /Users/msmoliakov/IdeaProjects/python-d
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
-//# sourceMappingURL=main.1b317e4d4e3c2696173e.js.map
+//# sourceMappingURL=main.233a87ccdce4ae07ccb9.js.map
