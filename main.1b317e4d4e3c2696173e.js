@@ -13460,8 +13460,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfigService", function() { return ConfigService; });
 /* harmony import */ var ngx_cookie__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ngx-cookie */ "./node_modules/ngx-cookie/fesm5/ngx-cookie.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
-/* harmony import */ var rxjs_observable_throw__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/observable/throw */ "./node_modules/rxjs-compat/_esm5/observable/throw.js");
-/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var rxjs_observable_throw__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/observable/throw */ "./node_modules/rxjs-compat/_esm5/observable/throw.js");
+/* harmony import */ var rxjs_add_operator_catch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/add/operator/catch */ "./node_modules/rxjs-compat/_esm5/add/operator/catch.js");
+
 
 
 
@@ -13479,7 +13481,13 @@ var ConfigService = /** @class */ (function () {
         var _this = this;
         this.config['AuthorizationToken'] = this.cookieService.get('token');
         return new Promise(function (resolve, reject) {
-            return _this.http.get('/config')
+            // return this.http.get('/config')
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])({
+                'aircraftServiceEndpoint': 'http://api.dev.jetsmarter.io/aircraft',
+                'erpServiceEndpoint': 'http://erp-service-op.jetsm.com',
+                'operatorServiceEndpoint': 'http://operator-service-op.jetsm.com',
+                'sourcingServiceEndpoint': 'http://api.dev.jetsmarter.io/sourcing'
+            })
                 .map(function (configResponse) {
                 var response = configResponse;
                 _this.config['AircraftServiceEndpoint'] = response.aircraftServiceEndpoint;
@@ -13488,7 +13496,7 @@ var ConfigService = /** @class */ (function () {
                 resolve(true);
             })
                 .catch(function (error) {
-                return Object(rxjs_observable_throw__WEBPACK_IMPORTED_MODULE_2__["_throw"])(error.json().error || 'Server error');
+                return Object(rxjs_observable_throw__WEBPACK_IMPORTED_MODULE_3__["_throw"])(error.json().error || 'Server error');
             })
                 .toPromise();
         });
@@ -13950,6 +13958,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../shared/services */ "./src/app/shared/services/index.ts");
 /* harmony import */ var _models__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../models */ "./src/app/core/models/index.ts");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+
 
 
 
@@ -13960,7 +13970,22 @@ var UserService = /** @class */ (function () {
     }
     UserService.prototype.getUser = function (request) {
         var requestUrl = '/user';
-        return this.http.get(requestUrl, null)
+        // return this.http.get(requestUrl, null)
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])({
+            json: function () {
+                return {
+                    'firstName': 'Test',
+                    'lastName': 'Delta',
+                    'logoutUrl': '/sp/ssout',
+                    'organizationId': 9,
+                    'organizationLegalName': 'Test Detla Private Jets',
+                    'organizationUuid': 'bf112259-d7ef-48f4-aed5-ab2c579bb5e1',
+                    'percentageOfSale': 25,
+                    'userTypeId': 2,
+                    'viewPermissions': { 'fulfillFlights': true, 'oneWayQuote': true, 'publishedFlights': true }
+                };
+            }
+        })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (svcResp) {
             var svcJsonResp = svcResp.json();
             var user = new _models__WEBPACK_IMPORTED_MODULE_2__["User"]();
@@ -13982,7 +14007,22 @@ var UserService = /** @class */ (function () {
     };
     UserService.prototype.getViewPermissions = function () {
         var requestUrl = '/user';
-        return this.http.get(requestUrl, null)
+        // return this.http.get(requestUrl, null)
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_4__["of"])({
+            json: function () {
+                return {
+                    'firstName': 'Test',
+                    'lastName': 'Delta',
+                    'logoutUrl': '/sp/ssout',
+                    'organizationId': 9,
+                    'organizationLegalName': 'Test Detla Private Jets',
+                    'organizationUuid': 'bf112259-d7ef-48f4-aed5-ab2c579bb5e1',
+                    'percentageOfSale': 25,
+                    'userTypeId': 2,
+                    'viewPermissions': { 'fulfillFlights': true, 'oneWayQuote': true, 'publishedFlights': true }
+                };
+            }
+        })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (svcResp) {
             var svcJsonResp = svcResp.json();
             var viewPermissions = new _models__WEBPACK_IMPORTED_MODULE_2__["ViewPermissions"]();
@@ -22835,4 +22875,4 @@ module.exports = __webpack_require__(/*! /Users/msmoliakov/IdeaProjects/python-d
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
-//# sourceMappingURL=main.d3dcf651b7fe1c71b630.js.map
+//# sourceMappingURL=main.1b317e4d4e3c2696173e.js.map
