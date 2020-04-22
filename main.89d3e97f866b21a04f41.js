@@ -13493,7 +13493,7 @@ var ConfigService = /** @class */ (function () {
                 _this.config['AircraftServiceEndpoint'] = response.aircraftServiceEndpoint;
                 _this.config['OperatorServiceEndpoint'] = response.operatorServiceEndpoint;
                 _this.config['SourcingServiceEndpoint'] = response.sourcingServiceEndpoint;
-                _this.config['GraphqlServiceEndpoint'] = 'http://JS-Operator-API-3054eb4e60-LB-1192414755.us-east-1.elb.amazonaws.com/graphql';
+                _this.config['GraphqlServiceEndpoint'] = 'http://js-operator-api-3054eb4e60-lb-1192414755.us-east-1.elb.amazonaws.com/graphql';
                 resolve(true);
             })
                 .catch(function (error) {
@@ -22745,7 +22745,7 @@ var environment = {
     aircraftServiceEndpoint: null,
     operatorServiceEndpoint: null,
     sourcingServiceEndpoint: null,
-    graphqlServiceEndpoint: 'http://js-operator-api-71597c3915-lb-100811675.us-east-1.elb.amazonaws.com/graphql',
+    graphqlServiceEndpoint: null,
     version: '2.1.0'
 };
 
@@ -22908,4 +22908,4 @@ module.exports = __webpack_require__(/*! /Users/msmoliakov/IdeaProjects/python-d
 /***/ })
 
 },[[0,"runtime","vendor"]]]);
-//# sourceMappingURL=main.c2b17e6d48bef8117d88.js.map
+//# sourceMappingURL=main.89d3e97f866b21a04f41.js.map
